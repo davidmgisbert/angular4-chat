@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1 class="text-center">Welcome to the chat app</h1>
+
+    <div class="row justify-content-sm-center">
+      <div class="col col-sm-4">
+        <div class="card">
+          <h4 class="card-header">Sign In to start chatting</h4>
+
+          <div class="card-body">
+            <form class="form sign-in" [formGroup]="signInForm" novalidate (ngSubmit)="onSubmit(signInForm)">
+              <div class="form-group">
+                <label for="username"><strong>Username</strong></label>
+                <input formControlName="username" type="text" class="form-control" id="username" name="username" placeholder="Enter username"
+                  minlength="4" required>
+                <div *ngIf="signInForm.get('username').invalid && (signInForm.get('username').dirty || signInForm.get('username').touched)">
+                  <small *ngIf="signInForm.get('username').hasError('required')" class="text-danger">Username is required</small>
+                  <small *ngIf="signInForm.get('username').hasError('minlength')" class="text-danger">Username must be at least 4 characters long</small>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password"><strong>Password</strong></label>
+                <input formControlName="password" t type="password" class="form-control" id="password" name="password" placeholder="Enter Password"
+                  minlength="8" required>
+                <div *ngIf="signInForm.get('password').invalid && (signInForm.get('password').dirty || signInForm.get('password').touched)">
+                  <small *ngIf="signInForm.get('password').hasError('required')" class="text-danger">Password is required</small>
+                  <small *ngIf="signInForm.get('password').hasError('minlength')" class="text-danger">Password must be at least 8 characters long</small>
+                </div>
+              </div>
+
+              <div class="form-check">
+                <label class="form-check-label">
+                    <input formControlName="keep" t type="checkbox" class="form-check-input" name="keep">
+                    Keep me signed in
+                  </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" [disabled]="signInForm.invalid">Sign In</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
