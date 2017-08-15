@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
 
-import { SignIn } from "./sign-in";
+import { SignIn } from "../_model/sign-in";
 
 @Component({
-  selector: 'auth-signin',
+  selector: 'auth-login',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })

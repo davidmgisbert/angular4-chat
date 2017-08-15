@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { LogInComponent } from './login/login.component';
 
 import { PageNotFoundComponent } from './shared/page-not-found.component';
 
@@ -14,7 +14,7 @@ import { PageNotFoundComponent } from './shared/page-not-found.component';
   declarations: [
     AppComponent,
     ChatComponent,
-    SignInComponent,
+    LogInComponent,
     PageNotFoundComponent
   ],
   imports: [
