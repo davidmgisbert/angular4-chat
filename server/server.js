@@ -9,9 +9,7 @@ app.get('/', function (req, res) {
 });
 
 io.on('connection', function (socket) {
-  io.emit('user added', { hello: 'data' });
-
   socket.on('user added', function (data) {
-    console.log(data);
+    socket.emit('user added', data);
   });
 });
