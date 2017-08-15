@@ -1,1 +1,33 @@
-<h1>Hello chat</h1>
+<div class="chat-area">
+  <div class="row m-0">
+    <div class="col col-lg-9 col-md-8 col-sm-8 col-xs-12 p-0 h-100">
+      <div class="message-area">
+        <h2 class="text-center">Welcome to the chat</h2>
+        <ul class="messages">
+          <h5 *ngFor="let log of logs" class="text-center log">{{log[0]}} {{log[1]}} the room</h5>
+          <li *ngFor="let message of messages">
+            <span class="username">{{message[0]}}</span> <span class="date">[{{message[2]}}] </span>: <span class="message">{{message[1]}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col col-lg-3 col-md-4 col-sm-4 col-xs-12 p-0">
+      <div class="users-area">
+        <h2 class="text-center">Active users ({{ users.length }})</h2>
+        <ul class="users">
+          <li *ngFor="let user of users">
+            {{user}}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col p-0">
+      <form class="form" [formGroup]="chatForm" novalidate (ngSubmit)="onSubmit(chatForm)">
+        <div class="form-group m-0">
+          <input formControlName="message" class="form-control" type="text" name="message" placeholder="Write a message and press enter to send"
+            minlength="1">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

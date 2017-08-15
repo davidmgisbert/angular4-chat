@@ -1,0 +1,35 @@
+.chat-area {
+  min-height: 94vh;
+  max-height: 94vh;
+}
+
+.message-area {
+  max-height: 89vh;
+  min-height: 89vh;
+
+  overflow-y: auto;
+  border-right: 1px solid #f1f1f1;
+}
+
+.messages {
+  margin: 0;
+  padding: 10px 20px 10px 20px;
+
+  list-style: none;
+  word-wrap: break-word;
+}
+
+:host ::ng-deep .username{
+  color: #759A59;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+:host ::ng-deep .date {
+  color: #34BB90;
+}
+
+form > div > * {
+  min-height: 5vh;
+  max-height: 5vh;
+}
