@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from "@angular/router";
+
+import { AuthService } from "../_service/auth.service";
 
 import { LogIn } from "../_model/login";
 
@@ -14,7 +15,7 @@ export class LogInComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private auth: AuthService
   ) { }
 
   ngOnInit() {
@@ -37,7 +38,6 @@ export class LogInComponent implements OnInit {
   }
 
   onSubmit({ value }: { value: LogIn }) {
-    localStorage.setItem('user', value.username);
-    this.router.navigateByUrl('chat');
+    this.auth.checkAuth(value.username, value.password);
   }
 }

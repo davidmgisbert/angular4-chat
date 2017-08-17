@@ -5,6 +5,8 @@ import { Router } from "@angular/router";
 import * as io from 'socket.io-client';
 import * as moment from 'moment';
 
+import { AuthService } from "../_service/auth.service";
+
 @Component({
   selector: 'main-chat',
   templateUrl: './chat.component.html',
@@ -20,17 +22,14 @@ export class ChatComponent {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private auth: AuthService
   ) {
 
   }
 
   ngOnInit() {
     this.user = this.getUser();
-    if (!this.user) {
-      this.router.navigateByUrl('login');
-      return
-    }
 
     this.messages = [];
     this.logs = [];
